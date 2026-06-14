@@ -98,6 +98,7 @@ Ensure your `firebase-applet-config.json` is correctly set up with the Google Cl
 npm run dev
 ```
 > Your app will be live at `http://localhost:3000`
+> Further you may directly use the app at `https://faresync-894707349375.us-west1.run.app/`
 
 ---
 
