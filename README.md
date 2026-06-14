@@ -65,8 +65,8 @@ Ready to run FareSync locally? Follow these steps to get your environment up and
 
 ### 1. Clone & Install
 ```bash
-git clone <repository_url>
-cd <repository_directory>
+git clone https://github.com/madd69x/FareSync/
+cd FareSync
 npm install
 ```
 
