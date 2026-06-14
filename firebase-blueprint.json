@@ -1,0 +1,58 @@
+{
+  "entities": {
+    "Trip": {
+      "title": "Trip",
+      "description": "Represents a ride history record",
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "number",
+          "description": "Timestamp of the trip"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "dest": {
+          "type": "string"
+        },
+        "distanceKm": {
+          "type": "number"
+        },
+        "co2": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "serviceName": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "userId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "origin",
+        "dest",
+        "distanceKm",
+        "co2",
+        "platform",
+        "serviceName",
+        "price",
+        "userId"
+      ]
+    }
+  },
+  "firestore": {
+    "/trips/{tripId}": {
+      "schema": {
+        "$ref": "#/entities/Trip"
+      },
+      "description": "Trips booked by users"
+    }
+  }
+}

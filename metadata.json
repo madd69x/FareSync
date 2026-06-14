@@ -1,0 +1,6 @@
+{
+  "name": "FareSync",
+  "description": "A hackathon MVP for a smart ride-hailing aggregator.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

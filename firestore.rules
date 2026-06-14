@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+    function isSignedIn() { return request.auth != null; }
+
+    function isValidTrip(data) {
+      return data.keys().hasAll(['date', 'origin', 'dest', 'platform', 'serviceName', 'price', 'distanceKm', 'co2', 'userId']) &&
+             data.keys().size() == 9 &&
+             data.date is number &&
+             data.origin is string && data.origin.size() <= 200 &&
+             data.dest is string && data.dest.size() <= 200 &&
+             data.platform is string && data.platform.size() <= 200 &&
+             data.serviceName is string && data.serviceName.size() <= 200 &&
+             data.price is number &&
+             data.distanceKm is number &&
+             data.co2 is number &&
+             data.userId is string && data.userId == request.auth.uid;
+    }
+
+    match /trips/{tripId} {
+      allow read, update, delete: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
+    }
+  }
+}

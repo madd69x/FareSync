@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+html, body, #root {
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.animated-route-path {
+  stroke-dasharray: 10, 10;
+  animation: travel-dash 1s linear infinite;
+}
+
+@keyframes travel-dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
