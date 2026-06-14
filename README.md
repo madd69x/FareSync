@@ -1,67 +1,88 @@
-<div align="center">
-  
-  # ⚡ FareSync
-  **The Ultimate Transit Aggregator & Smart Pricing Layer for Urban India.**
-  
-  [![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactnative.dev/)
-  [![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37)](https://expo.dev/)
-  [![Hackathon](https://img.shields.io/badge/OneJourney_Hackathon-2026-00E5FF?style=for-the-badge)](#)
-  [![Track](https://img.shields.io/badge/Track-Transparent_Pricing-FF2E93?style=for-the-badge)](#)
+# FareSync - The Smart Ride-Hailing Aggregator
 
-  <p align="center">
-    <i>Stop searching. Start syncing.</i><br>
-    Built by <b>Team Delta Transit</b> for the OneJourney Mobility Hackathon.
-  </p>
-</div>
+**FareSync** is a unified ride-hailing aggregator application designed to help users find the best, cheapest, and fastest rides from popular platforms like Uber, Ola, Rapido, inDrive, BluSmart, and Namma Yatri. By leveraging real-time AI insights and intuitive mapping, FareSync brings transparency and choice directly to the user's fingertips.
 
----
+It deep-links directly onto the respective platforms, meaning a user can plan exactly what they want in one interface before being transferred to their provider of choice for final booking.
 
-## 🚀 The Vision
-The modern Indian commuter suffers from "app fatigue"—juggling Uber, Ola, and Rapido to escape arbitrary surge pricing. **FareSync** is an intelligent aggregator layer designed to sit natively inside the OneJourney Super App. It allows users to compare live fares across all major fleets in a single tap and bypasses surge pricing using predictive algorithms, routing the booking via zero-friction deep links.
+## Features
 
----
+- 🚕 **Multi-Platform Aggregation**: Compares rides and prices from major ride-hailing services (Uber, Ola, Rapido, etc.), categorizing by cab, auto, bike, and SUV.
+- ✨ **AI Smart Insights**: Uses Google's **Gemini AI** to analyze current fares and distance, instantly providing customized insights (e.g., whether you should book now or wait out a surge).
+- 📍 **Deep-Linked Booking**: Instantly transfers origin and destination coordinates directly to the Uber, Ola, or Rapido app natively or via web using pre-filled parameters. 
+- 📊 **Historical Trip & Spend Tracking**: Visualizes past travel history and spending analytics using **Recharts**, grouped by vehicle categories.
+- ☁️ **Cloud Data Sync**: Saves users' trip histories natively to **Firebase Firestore** and exports data to **Google Sheets** for deeper spreadsheet management.
+- 🗺 **Interactive Web Maps**: Built with React Native Web Maps / Leaflet for dynamic, custom-styled map routing between destinations.
 
-## 📸 App Interface
+## Tech Stack
 
-*(Replace these placeholder links with actual screenshots of your app)*
-<div align="center">
-  <img src="https://via.placeholder.com/250x500/121212/00E5FF?text=Dashboard+Screen" width="250" />
-  <img src="https://via.placeholder.com/250x500/121212/FF2E93?text=Live+Fare+Matrix" width="250" />
-  <img src="https://via.placeholder.com/250x500/121212/00FF66?text=SmartWait+AI" width="250" />
-</div>
+- **Frontend**: React (via React Native for Web), Tailwind CSS, Vite, Recharts, Lucide React
+- **Backend / Routing**: Express.js, TypeScript
+- **Database / Auth**: Firebase (Auth & Firestore)
+- **AI & Integrations**: 
+  - `@google/genai` (Gemini API)
+  - Google Sheets API v4
+  - OSRM / Komoot Photon API (for fast geocoding and routing metrics)
 
----
+## Pre-Requisites
 
-## ✨ Core Features & USP
+Make sure you have Node.js and npm installed on your machine.
+You will also need various API keys to unleash the full capability of the app.
 
-| Feature | Description |
-| :--- | :--- |
-| 📊 **Parallel Fare Matrix** | Concurrently calculates and ranks rates across Bikes, Autos, Cabs, and SUVs from multiple platforms. |
-| 🧠 **SmartWait AI** | A standout predictive feature. If a user searches during a peak 1.4x surge, the UI proactively recommends waiting: *"💡 Market demand dropping soon. Wait 12 mins to save ~20%."* |
-| 🔗 **Zero-Friction Deep Links** | Tapping "Book" passes GPS coordinates directly into the native Uber/Ola app via Intent URIs, executing the transaction flawlessly. |
-| 🗺️ **Context-Aware Routing** | Integrates with the **Google Maps Directions API** to base pricing algorithms on real-world distance and traffic durations. |
-| 🌙 **Premium Material UI** | A stunning, high-conversion AMOLED dark-mode interface utilizing React Native LayoutAnimations for native Android fluidity. |
+## Quick Start
 
----
+1. **Clone the repository:**
+   ```bash
+   git clone <repository_url>
+   cd <repository_directory>
+   ```
 
-## 💼 Business Impact for OneJourney
+2. **Install the dependencies:**
+   ```bash
+   npm install
+   ```
 
-Why does OneJourney need FareSync? 
-1. **The "Kayak" Model:** By offering the ultimate comparison tool, users will open OneJourney *first* every single time they commute, drastically increasing Daily Active Users (DAUs).
-2. **User Trust:** By actively warning users about surge pricing via SmartWait AI, OneJourney builds radical brand loyalty. 
+3. **Configure the Environment:**
+   A `.env.example` file is included in the root. Rename or copy it to `.env` and fill out your keys:
+   ```env
+   # Used for backend JWTs (if applicable)
+   JWT_SECRET=supersecret123
 
----
+   # JSON details from a Google Cloud Service Account
+   GOOGLE_SERVICE_ACCOUNT_EMAIL=your-service-account@your-project.iam.gserviceaccount.com
+   GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYOUR_KEY_HERE\n-----END PRIVATE KEY-----\n"
 
-## 🛠️ System Architecture
+   # Target Spreadsheet ID to export user trip data
+   GOOGLE_SPREADSHEET_ID=your_spreadsheet_id_here
 
-FareSync operates on a highly optimized, asynchronous data flow:
+   # Gemini API Key for Smart Ride Insights
+   GEMINI_API_KEY=your_gemini_api_key
 
-```mermaid
-graph TD;
-    A[User Inputs Destination] -->|Origin/Dest Data| B(Google Maps API);
-    B -->|Distance & ETA| C{FareSync Pricing Engine};
-    C -->|Calculates Base + Per/Km| D[Apply Time-of-Day Surge];
-    D -->|Check > 1.4x Surge| E[Trigger SmartWait AI Banner];
-    D --> F[Sort Array: Cheapest to Highest];
-    F --> G[Render UI Matrix];
-    G -->|User Taps 'Book'| H[Execute Native Deep Link uber://];
+   # Google Maps Platform Key (for Address autocomplete / map UI rendering)
+   GOOGLE_MAPS_PLATFORM_KEY=your_google_maps_key
+   ```
+
+4. **Connect Firebase:**
+   Ensure that the `firebase-applet-config.json` file is correctly populated with your Firebase project properties so the client successfully maps to your backend Firestore cluster.
+
+5. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+   The app will run locally on `http://localhost:3000`.
+
+## Scripts
+
+- `npm run dev`: Runs the application in development mode.
+- `npm run build`: Bundles the full-stack application (frontend + backend ESBuilds).
+- `npm run start`: Starts the production build node server.
+
+## Overview of Operation
+- Login via Google authentication or email/password.
+- Search for a pickup location and dropoff destination.
+- The app automatically calculates estimates and standard pricing brackets, and routes it to the Gemini AI to determine if prices are recommended or inflated.
+- Filter by preferred vehicle types or sort by ETA and Pricing.
+- Press **Book Ride** to securely transition directly to the chosen operator's domain (or mobile app) pre-filled with pickup and dropoff locations using precise deep links.
+
+## License
+Apache License 2.0
