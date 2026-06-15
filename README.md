@@ -28,6 +28,8 @@ But it's not just a comparison tool—FareSync is powered by **Google Gemini AI*
 
 <br />
 
+Live Demo: [Click here to test FareSync Live](https://faresync-894707349375.us-west1.run.app/)
+
 ## ✨ Key Features
 
 ### 🚙 Universal Aggregation
