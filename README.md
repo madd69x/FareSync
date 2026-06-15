@@ -40,6 +40,9 @@ Live Demo: [Click here to test FareSync Live](https://faresync-894707349375.us-w
   <img src="https://private-user-images.githubusercontent.com/223416461/607714835-c9d47498-cdbb-4be7-8737-6ef5f59a2f66.jpeg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODE0OTk1ODIsIm5iZiI6MTc4MTQ5OTI4MiwicGF0aCI6Ii8yMjM0MTY0NjEvNjA3NzE0ODM1LWM5ZDQ3NDk4LWNkYmItNGJlNy04NzM3LTZlZjVmNTlhMmY2Ni5qcGVnP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDYxNSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA2MTVUMDQ1NDQyWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9ZDUyZDcwMzdkYWQ4ZmUzY2YzMTE4ODIzNzE1OWJhYWE4Y2QxMWViNTRiZjVjMDIwNzczNmE5MDJjYTY5YTcxMyZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmcmVzcG9uc2UtY29udGVudC10eXBlPWltYWdlJTJGanBlZyJ9.xOwvwM82Hxr5_r1RLLxljBkD4IRiy8XFMdFVlDz37wI" width="280" style="margin: 0 10px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.5);" alt="Gemini AI Smart Insights" />
 </div>
 
+Presentation Link: https://github.com/user-attachments/files/28942846/FareSync.Presentation.pdf
+
+
 ## ✨ Key Features
 
 ### 🚙 Universal Aggregation
