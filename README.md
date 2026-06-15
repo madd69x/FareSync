@@ -30,6 +30,9 @@ But it's not just a comparison tool—FareSync is powered by **Google Gemini AI*
 
 Live Demo: [Click here to test FareSync Live](https://faresync-894707349375.us-west1.run.app/)
 
+## App Interface
+
+
 ## ✨ Key Features
 
 ### 🚙 Universal Aggregation
@@ -114,6 +117,7 @@ npm run start   # Starts the Node.js production server
 <br />
 
 <div align="center">
-  <i>Designed with precision. Built for speed.</i><br />
+  <i> Built by Team Delta Transit for the OneJourney Mobility Hackathon 2026 
+    (Track: Transparent Pricing).</i><br />
   <b>Apache License 2.0</b>
 </div>
